@@ -1,16 +1,10 @@
-# This is a sample Python script.
 
-# Press Alt+Shift+X to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from fastapi import FastAPI
+from src.controller.HelloController import router as hello_router
+from src.controller.ChatController import router as chat_router
 
+app = FastAPI()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+Shift+B to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# 加载各个子路由
+app.include_router(hello_router)
+app.include_router(chat_router)
