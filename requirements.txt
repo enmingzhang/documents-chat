@@ -2,6 +2,6 @@ fastapi
 requests
 langchain==0.0.275
 openai
-
+uvicorn
 #pdf 解析类库
 pymupdf
