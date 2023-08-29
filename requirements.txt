@@ -1,4 +1,4 @@
 requests
-langchain
+langchain==0.0.275
 openai
 fastapi
