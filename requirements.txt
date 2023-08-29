@@ -1,4 +1,7 @@
+fastapi
 requests
 langchain==0.0.275
 openai
-fastapi
+
+#pdf 解析类库
+pymupdf
