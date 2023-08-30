@@ -1,4 +1,4 @@
-from src.service.file.impl.PDFParser import PDFParser
+from service.file.impl.PDFParser import PDFParser
 import unittest
 
 # pdf 解析器测试用例
