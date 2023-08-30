@@ -1,0 +1,10 @@
+database:
+  host: localhost
+  port: 3306
+  username: myuser
+  password: mypassword
+
+qdrant:
+  host: localhost
+  port: 6300
+  collection: article

@@ -5,3 +5,4 @@ openai
 uvicorn
 #pdf 解析类库
 pymupdf
+pyyaml
