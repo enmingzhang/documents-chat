@@ -36,7 +36,7 @@ class Message(Base):
         data = {"id":      self.id,
                 "user_id": self.user_id,
                 "file_id": self.file_id,
-                "role":    self.file_id,
+                "role":    self.role,
                 "message": self.message,
                 "source":  self.source,
                 "create_time": self.create_time.__str__()

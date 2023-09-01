@@ -5,6 +5,6 @@ database:
   password: mypassword
 
 qdrant:
-  host: localhost
-  port: 6300
-  collection: article
+  host: 172.28.120.153
+  port: 6333
+  collection: articleV3

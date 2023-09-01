@@ -5,7 +5,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 # 基础类
 Base = declarative_base()
 
-
 # 创建引擎
 engine = create_engine(
     "mysql+pymysql://sra_dev:c3JhLWRldkA2NjYK@172.28.120.23:3306/sra_dev?charset=utf8mb4",
