@@ -12,7 +12,7 @@ class MysqlConfig:
             self.config = yaml.safe_load(f)
 
     def get_db_config(self):
-        return self.config['database']
+        return self.config['model']
 
 
 # 创建配置对象
