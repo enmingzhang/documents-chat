@@ -9,10 +9,10 @@ Base = declarative_base()
 class File(Base):
     __tablename__ = "file"
     # 对于必须插入的字段，采用nullable=False进行约束，它相当于NOT NULL
-    id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
-    name = Column(String, index=True, nullable=False, comment="名称")
-    create_time = Column(DateTime, default=datetime.now, comment="创建时间")
-    update_time = Column(DateTime, onupdate=datetime.now, comment="最后更新时间")
+    id          = Column(Integer,   primary_key=True, autoincrement=True, comment="主键")
+    name        = Column(String,    index =True,nullable=False, comment="名称")
+    create_time = Column(DateTime,  default =datetime.now,      comment="创建时间")
+    update_time = Column(DateTime,  onupdate=datetime.now,      comment="最后更新时间")
 
     def __str__(self):
         return f"object : <id:{self.id} name:{self.name}>"
