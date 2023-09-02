@@ -7,6 +7,30 @@ from src.storage.vector.BaseVectorRepository import BaseVectorRepository
 # 文件分片向量的crud 和相似查询
 class FileChunk(BaseVectorRepository):
 
+    # 获得所有的collection 数组
+    def get_collections(self):
+        return self.get_client().get_collections()
+
+    # 统计collection中的point总数
+    def count_collection(self):
+        result = self.get_client().count(self.collection_name)
+        return result
+
+    # 根据id获得point
+    def get_point(self, id: int):
+        file_filter = Filter(
+            must=[FieldCondition(key="id", match=MatchValue(value=id))]
+        )
+        result = self.get_client().scroll(self.collection_name, scroll_filter=file_filter, with_payload=True, limit=1)
+        return result
+
+    def count_file_points(self, file_id: int):
+        file_filter = Filter(
+            must=[FieldCondition(key="metadata.file_id", match=MatchValue(value=file_id))]
+        )
+        result = self.get_client().count(self.collection_name, scroll_filter=file_filter, with_payload=True, limit=100)
+        return result
+
     # 获得文件的向量数组
     def get_file_points(self, file_id: int):
         file_filter = Filter(
@@ -37,10 +61,3 @@ class FileChunk(BaseVectorRepository):
         self.get_client().search(self.collection_name, query_vector=vector, query_filter=file_filter)
         return
 
-    # FileChunk().delete_points(4910)
-# hits, _offset = FileChunk().get_file_points(4910)
-# print(len(hits))
-#
-#
-# for hit in hits:
-#     print(hit)
